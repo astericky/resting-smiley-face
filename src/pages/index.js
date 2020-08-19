@@ -1,5 +1,8 @@
-import React from "react"
+import React from 'react'
+import Container from '../components/container'
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return <Container>
+    Welcome to the home page
+  </Container>
 }
