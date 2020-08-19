@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: asterick/resting-smiley-face
+  repo: astericky/resting-smiley-face
 
 
 media_folder: static/assets
