@@ -8,7 +8,7 @@ public_folder: assets
 
 collections:
   - name: blog
-    label: Post
+    label: Blog Post
     folder: blog
     create: true
     fields:
