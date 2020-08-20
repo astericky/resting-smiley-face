@@ -34,8 +34,15 @@ const NavStyle = styled.nav`
     text-shadow: none;
   }
 
+  .nav-active {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+
   @media (min-width: 600px) {
     display: inline-grid;
+    
   }
 `
 

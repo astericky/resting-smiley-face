@@ -24,4 +24,12 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
   ],
+
+  siteMetadata: {
+    title: 'Resting Smiley Face',
+    titleTemplate: '%s - Resting Smiley Face',
+    description: 'Swifty Sanders\' Web Playground',
+    url: 'https://www.restingsmileyface.com',
+    twitterUsername: '@swiftysanders',
+  }
 }
