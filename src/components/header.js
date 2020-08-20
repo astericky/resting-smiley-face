@@ -7,6 +7,8 @@ const HeaderStyle = styled.header`
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     'logo space nav';
+  padding: 16px;
+  background: #eeeeff;
 `
 
 const LogoStyle = styled.h1`
@@ -18,10 +20,11 @@ const Logo = ({ text }) => (
 )
 
 const NavStyle = styled.nav`
-  display: grid;
+  display: inline-grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: 12px;
   grid-area: nav;
+  align-self: center;
 
   a {
     text-align: center;
@@ -31,7 +34,7 @@ const NavStyle = styled.nav`
 export default function header() {
   return (
     <HeaderStyle>
-      <Logo text="Resting Smiley Face" />
+      <Logo text="&#128513; Resting Smiley Face" />
       <NavStyle>
         <Link to="/">Home</Link>
         <Link to="/resume">Resume</Link>

@@ -1,7 +1,9 @@
 import Typography from 'typography'
-import fairyGateTheme from 'typography-theme-elk-glen'
+import elkGlenTheme from 'typography-theme-elk-glen'
 
-const typography = new Typography(fairyGateTheme)
+elkGlenTheme.baseFontSize = '16px'
+
+const typography = new Typography(elkGlenTheme)
 
 export const { scale, rhythm, options } = typography
 export default typography
