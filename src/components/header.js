@@ -18,9 +18,20 @@ const LogoStyle = styled.h1`
   margin: 0;
   font-size: 1.25rem;
 
+  a,
+  span {
+    margin-right: 8px;
+  }
+
   a {
+    display: flex;
+    align-items: center;
     background: none;
     text-shadow: none;
+  }
+
+  span {
+    font-size: 1.5em;
   }
 
   @media (min-width: 475px) {
@@ -29,13 +40,18 @@ const LogoStyle = styled.h1`
 `
 
 const Logo = ({ text }) => (
-  <LogoStyle><Link to="/">{text}</Link></LogoStyle>
+  <LogoStyle>
+    <Link to="/">
+      <span role="img" aria-label="Beaming Face with Smiling Eyes">&#128513;</span>
+      {text}
+    </Link>
+  </LogoStyle>
 )
 
 export default function header() {
   return (
     <HeaderStyle>
-      <Logo text="&#128513; Resting Smiley Face" />
+      <Logo text="Resting Smiley Face" />
       <Nav />
     </HeaderStyle>
   )
