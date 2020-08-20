@@ -11,7 +11,7 @@ const ContainerStyled = styled.div`
   grid-gap: 16px;
   grid-template-rows: max-content auto minmax(min-content, 200px);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 export default function Container({ children }) {
