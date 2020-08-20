@@ -7,7 +7,7 @@ const HeaderStyle = styled.header`
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     'logo space nav';
-  padding: 12px 16px 16px;
+  padding: 16px;
   background: #eeeeff;
 `
 
@@ -33,6 +33,7 @@ const HamburgerIcon = () => (
 
 const NavContainer = styled.div`
   grid-area: nav;
+  align-self: center;
 
   .hamburger-icon {
     font-size: 32px;
