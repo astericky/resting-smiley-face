@@ -17,6 +17,7 @@ const LogoStyle = styled.h1`
   align-self: center;
   margin: 0;
   font-size: 1.25rem;
+  line-height: 1;
 
   a,
   span {
