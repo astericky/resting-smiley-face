@@ -7,7 +7,7 @@ const HeaderStyle = styled.header`
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     'logo space nav';
-  padding: 16px;
+  padding: 12px 16px 16px;
   background: #eeeeff;
 `
 
