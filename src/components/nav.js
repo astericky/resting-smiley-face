@@ -55,7 +55,7 @@ export default function Nav() {
         <Link to="/resume">Resume</Link>
         <Link to="/blog">Blog</Link>
         <Link to="/contact">Contact</Link>
-        <Link to="/account">Account</Link>
+        {/* <Link to="/account">Account</Link> */}
       </NavStyle>
     </NavContainer>
   )

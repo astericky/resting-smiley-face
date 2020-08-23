@@ -1,22 +1,67 @@
 import React from 'react'
-import { Router } from '@reach/router'
+import { navigate, Router } from '@reach/router'
 import { Link } from 'gatsby'
+import Login, { signIn } from '../components/Login'
 
-const Home = () => <p>Home</p>
+const Home = () => <p>Account Information</p>
 const Settings = () => <p>Settings</p>
 
-export default function Account() {
-  return (
-    <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/account">My Account</Link>
-        <Link to="/account/settings">Settings</Link>
-      </nav>
-      <Router>
-        <Home path="/account" />
-        <Settings path="/account/settings" />
-      </Router>
-    </>
-  )
+const isAuthenticated = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('isAuthenticated') === 'true'
+  } else {
+    return false
+  }
+}
+
+export default class Account extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { user: false }
+  }
+
+  async componentDidMount() {
+    console.log('signIn :: ', await signIn.authClient.tokenManager.get('idToken'))
+    const token = await signIn.authClient.tokenManager.get('idToken')
+    if (token) {
+      this.setState({ user: token.claims.name })
+    } else {
+      // Token has expierd
+      this.setState({ user: false })
+      localStorage.setItem('isAuthenticated', 'false')
+    }
+  }
+
+  logout = () => {
+    signIn.authClient.signOut().catch((error) => {
+      console.error('Sign out error: ', error)
+    }).then(() => {
+      localStorage.setItem('isAuthenticated', 'false')
+      this.setState({ user: false })
+      navigate('/')
+    })
+  }
+  render() {
+    if (!isAuthenticated()) {
+      return <Login />
+    }
+
+    return (
+      <>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/account">My Account</Link>
+          <Link to="/account/settings">Settings</Link>
+        </nav>
+        <>
+          <p>Welcome, {this.state.user}. <button onClick={this.logout}>Logout</button></p>
+        </>
+        <Router>
+          <Home path="/account" />
+          <Settings path="/account/settings" />
+        </Router>
+      </>
+    )
+  }
 }
